@@ -13,6 +13,7 @@ import io.interfaz.training.services.OrderDetailsService;
  * @author Nacho
  *
  */
+
 @RequestMapping("/orderDetail")
 @Controller
 public class OrderDetailsController {
