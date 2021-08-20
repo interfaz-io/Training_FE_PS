@@ -3,6 +3,8 @@
  */
 package io.interfaz.training.pojos;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,7 @@ public class OrdersDetails {
 	 private int orderId;
 	 private int productId;
 	 private int quantity;
-	 private double price;
+	 private BigDecimal price;
 	 private int totalAmount;
 
 }
