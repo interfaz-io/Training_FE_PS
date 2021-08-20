@@ -12,13 +12,13 @@ import lombok.Data;
 @Data
 public class OrderDetailsDTO {
 
-	private OrdersWrapper _embedded;
+	private OrdersDetailsWrapper _embedded;
 
-	public OrdersWrapper get_embedded() {
+	public OrdersDetailsWrapper get_embedded() {
 		return _embedded;
 	}
 
-	public void set_embedded(OrdersWrapper _embedded) {
+	public void set_embedded(OrdersDetailsWrapper _embedded) {
 		this._embedded = _embedded;
 	}
 }
