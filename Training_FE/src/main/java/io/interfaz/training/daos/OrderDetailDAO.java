@@ -6,10 +6,10 @@ package io.interfaz.training.daos;
 import java.util.List;
 
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import io.interfaz.training.pojos.OrderDetailsDTO;
-
+import io.interfaz.training.dto.OrderDetailsDTO;
 import io.interfaz.training.pojos.OrdersDetails;
 import reactor.core.publisher.Mono;
 
@@ -17,6 +17,8 @@ import reactor.core.publisher.Mono;
  * @author María
  *
  */
+
+@Component
 public class OrderDetailDAO {
 	private final WebClient client;
 
