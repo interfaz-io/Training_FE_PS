@@ -1,8 +1,9 @@
 /**
  * 
  */
-package io.interfaz.training.pojos;
+package io.interfaz.training.dto;
 
+import io.interfaz.training.pojos.OrdersWrapper;
 import lombok.Data;
 
 /**
