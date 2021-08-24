@@ -3,6 +3,7 @@
  */
 package io.interfaz.training.daos;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
@@ -10,7 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import io.interfaz.training.dto.CustomersDTO;
 import io.interfaz.training.pojos.Customers;
 import reactor.core.publisher.Mono;
 
@@ -18,18 +18,19 @@ import reactor.core.publisher.Mono;
  * @author María
  *
  */
+
 @Component
 public class CustomerDAO {
 	private final WebClient client;
 
 	public CustomerDAO(WebClient.Builder builder) {
-		this.client = builder.baseUrl("http://localhost:9080").build();
+		this.client = builder.baseUrl("http://be-training.us-east-1.elasticbeanstalk.com").build();
 	}
 
 	public List<Customers> getAll() {
-		Mono<CustomersDTO> pdt = this.client.get().uri("/customers").accept(MediaType.APPLICATION_JSON).retrieve()
-				.bodyToMono(CustomersDTO.class);
-		return pdt.block().get_embedded().getCustomer();
+		Mono<Customers[]> pdt = this.client.get().uri("/customers").accept(MediaType.APPLICATION_JSON).retrieve()
+				.bodyToMono(Customers[].class);
+		return Arrays.asList(pdt.block());
 
 	}
 	

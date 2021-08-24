@@ -3,12 +3,10 @@
  */
 package io.interfaz.training.pojos;
 
-
-
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +28,7 @@ public class Orders {
 	private BigDecimal subtotal;
 	private BigDecimal iva;
 	private BigDecimal total;
-	
+	private ArrayList<OrdersDetails> details;
 	
 	public Orders(int id, LocalDateTime purchaseDate, int customerId, BigDecimal subtotal, BigDecimal iva) {
 		this.id = id;
@@ -110,6 +108,8 @@ public class Orders {
 		BigDecimal resultado= subtotal.multiply(iva);
 		return subtotal.add(resultado) ;
 	}
+	
+	
 	
 	
 }

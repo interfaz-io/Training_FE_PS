@@ -3,11 +3,12 @@
  */
 package io.interfaz.training.pojos;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 /**
  * @author María
@@ -26,7 +27,6 @@ public class Customers {
 	private int countryId;
 	private String status;
 	
-	
-	
+	private ArrayList<Orders> orders;
 
 }
