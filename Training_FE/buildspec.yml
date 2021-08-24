@@ -1,0 +1,14 @@
+version: 0.2
+phases:  
+  install:    
+    runtime-versions:      
+    java: corretto11
+  post_build:    
+  commands:      
+      - mvn package -DskipTests
+      - mv target/Training_FE-*.jar ./
+artifacts:  
+   files:    
+      - '*.jar'    
+      - .ebextensions/**/* 
+   name: $(echo `ls Training_FE-*.jar | sed 's/\.[^.]*$/\.zip/'`)
