@@ -20,7 +20,5 @@ public class Products {
 	private String description;
 	private double price;
 	private String status;
-	
-	
 
 }

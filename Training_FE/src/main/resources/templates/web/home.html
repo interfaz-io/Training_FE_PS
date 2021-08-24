@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <link
@@ -7,11 +8,18 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
 <title>Insert title here</title>
 </head>
 <body>
 
 	<header th:replace="plantilla/plantilla :: header"></header>
+
+
+
+	<footer th:replace="plantilla/plantilla :: footer"></footer>
+
+	<section th:replace="plantilla/plantilla :: script-bootstrap"></section>
 
 </body>
 </html>
