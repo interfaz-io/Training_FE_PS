@@ -29,13 +29,10 @@ public class ProductController {
 
 	@GetMapping()
 	public String getAllProducts(Model model) {
-		
 		ArrayList<Products> listProducts = new ArrayList<>();
-		
 		listProducts.add(new Products(1,"name 1","desc 1", 5.5,"available" ));
 		listProducts.add(new Products(2,"name 2","desc 1", 5.5,"available" ));
 		listProducts.add(new Products(3,"name 3","desc 3", 5.5,"available" ));
-		
 		model.addAttribute("products", listProducts);
 		return "web/product/productAdmin";
 	}
