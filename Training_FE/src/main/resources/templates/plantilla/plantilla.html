@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <link
@@ -7,26 +8,65 @@
 	rel="stylesheet"
 	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
 <title>Insert title here</title>
 </head>
 <body>
 	<header th:fragment="header">
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 			<div class="container">
-
 				<div class="colapse navbar-colapse" id="navbarScroll"></div>
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<form class="d-flex" th:action="@{/peopleWeb/destroy}"
-							method="post">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item active px-2"><a class="nav-link" href="#">Home</a></li>
+				</ul>
+				<ul class="navbar-nav navbar-right ml-auto">
 
-							<a href="#" onclick="this.parentNode.submit();" class="nav-link"
-								th:utext="#{action.signout}"></a>
-						</form>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/locale(lang=es)}">ES</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/locale(lang=en)}">EN</a></li>
+
+					<li class="dropdown show"><a
+						class="btn btn-outline-primary dropdown-toggle" href="#"
+						role="button" id="dropdownMenu" data-bs-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"><i
+							class="far fa-user" style="margin-right: 8px;"></i><span
+							sec:authentication="name"></span></a>
+
+						<div class="dropdown-menu dropdown-menu-secondary"
+							aria-labelledby="dropdownMenu">
+							<form class="d-flex" th:action="@{/logout}"
+								method="post">
+								<button class="dropdown-item"
+									onclick="this.parentNode.submit();" type="submit"
+									th:utext="#{action.signout}">etytu</button>
+							</form>
+						</div></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
+
+	<footer th:fragment="footer" class="bg-secondary text-white mt-5 p-5">
+		<div class="container">
+			<div class="col">
+				<h3 class="lead text-center">Interfaz.io</h3>
+			</div>
+		</div>
+	</footer>
+
+
+	<Section th:fragment="script-bootstrap">
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+			integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+			integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+			crossorigin="anonymous"></script>
+	</Section>
+
+
 </body>
 </html>
