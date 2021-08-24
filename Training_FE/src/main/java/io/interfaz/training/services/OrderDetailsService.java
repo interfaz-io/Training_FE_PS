@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import io.interfaz.training.daos.OrderDetailDAO;
 import io.interfaz.training.pojos.OrdersDetails;
+import io.interfaz.training.pojos.Products;
 
 /**
  * @author Nacho
@@ -19,9 +20,22 @@ import io.interfaz.training.pojos.OrdersDetails;
 public class OrderDetailsService {
 
 	@Autowired
-	private OrderDetailDAO orderDetail;
+	private OrderDetailDAO orderDetailDAO;
 	
 	public List<OrdersDetails> getAllOrderDetails() {
-		return orderDetail.getAll();		
+		return orderDetailDAO.getAll();		
+	}
+	
+	
+	public OrdersDetails getProduct(int id) {
+		return orderDetailDAO.getById(id);
+	}
+	
+	public OrdersDetails addProduct(OrdersDetails ordersDetail) {
+		return orderDetailDAO.createOrderDetail(ordersDetail);
+	}
+	
+	public OrdersDetails modifyProduct(int id, OrdersDetails ordersDetail) {
+		return orderDetailDAO.updateOrderDetail(id, ordersDetail);
 	}
 }

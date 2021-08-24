@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import io.interfaz.training.daos.OrderDAO;
 import io.interfaz.training.daos.ProductDAO;
+import io.interfaz.training.pojos.Customers;
 import io.interfaz.training.pojos.Orders;
 import io.interfaz.training.pojos.Products;
 
@@ -20,9 +21,21 @@ import io.interfaz.training.pojos.Products;
 @Service
 public class ProductService {
 	@Autowired
-	private ProductDAO product;
+	private ProductDAO productDAO;
 	
 	public List<Products> getAllProduct() {
-		return product.getAll();		
+		return productDAO.getAll();		
+	}
+	
+	public Products getProduct(int id) {
+		return productDAO.getById(id);
+	}
+	
+	public Products addProduct(Products product) {
+		return productDAO.createProduct(product);
+	}
+	
+	public Products modifyProduct(int id, Products product) {
+		return productDAO.updateProduct(id, product);
 	}
 }
