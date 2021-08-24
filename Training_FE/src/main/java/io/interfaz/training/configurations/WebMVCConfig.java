@@ -103,6 +103,7 @@ public class WebMVCConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login").setViewName("login");
 		registry.addViewController("/forbidden403").setViewName("forbidden403");
+		registry.addViewController("/home").setViewName("/web/home");
 	}
 
 }
