@@ -7,7 +7,7 @@ package io.interfaz.training.pojos;
 
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class Orders {
 
 	private int id;
-	private Date purchaseDate;
+	private LocalDateTime purchaseDate;
 	private int customerId;
 	private BigDecimal subtotal;
 	private BigDecimal iva;
