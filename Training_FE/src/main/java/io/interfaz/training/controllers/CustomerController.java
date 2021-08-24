@@ -38,9 +38,9 @@ public class CustomerController {
 	public String allCustomer(Model model) {
 		ArrayList<Customers> listCustomers = new ArrayList<>();
 		
-		listCustomers.add(new Customers(1,"Oscar","Ulate","oscar@ulate.com",1,"Active"));
-		listCustomers.add(new Customers(2,"Maria","Rodriguez","maria@rodriguez.com",1,"Active"));
-		listCustomers.add(new Customers(3,"Jose","Zamora","jose@zamroa.com",1,"Active"));
+		listCustomers.add(new Customers(1,"Oscar","Ulate","oscar@ulate.com",1,"Active", null));
+		listCustomers.add(new Customers(2,"Maria","Rodriguez","maria@rodriguez.com",1,"Active", null));
+		listCustomers.add(new Customers(3,"Jose","Zamora","jose@zamroa.com",1,"Active", null));
 		
 		model.addAttribute("customers", listCustomers);
 		return "web/customer/allCustomer";

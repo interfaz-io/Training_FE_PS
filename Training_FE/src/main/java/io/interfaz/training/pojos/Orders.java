@@ -3,11 +3,9 @@
  */
 package io.interfaz.training.pojos;
 
-
-
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,4 +27,6 @@ public class Orders {
 	private BigDecimal subtotal;
 	private BigDecimal iva;
 	private BigDecimal total;
+	
+	private ArrayList<OrdersDetails> details ;
 }
