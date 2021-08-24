@@ -28,7 +28,7 @@ public class ProductController {
 	private ProductService serviceProduct;
 
 	@GetMapping()
-	public String home(Model model) {
+	public String getAllProducts(Model model) {
 		
 		ArrayList<Products> listProducts = new ArrayList<>();
 		
@@ -38,5 +38,10 @@ public class ProductController {
 		
 		model.addAttribute("products", listProducts);
 		return "web/product/productAdmin";
+	}
+	
+	@GetMapping("/add")
+	public String addProduct(){
+		return "web/product/addProduct";
 	}
 }
