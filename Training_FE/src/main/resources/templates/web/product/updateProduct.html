@@ -2,9 +2,65 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
 <title>Insert title here</title>
 </head>
 <body>
 	<header th:replace="plantilla/plantilla :: header"></header>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+			<br/>
+				<h1 class="text-center" style="border-bottom: 1px solid coral;"
+					th:utext="#{update-product.title-details}">Detalles del
+					Producto</h1>
+
+				<form th:action="'/product/'+${product.id}+'/update'" method="post"
+					th:object="${product}">
+
+					<input id="id" name="id" type="hidden" th:field="*{id}">
+					<table class="table table-bordered">
+						<tr>
+							<td style="width: 200px;">[[#{product.name}]]</td>
+							<td><input id="name" name="name" type="text"
+								th:field="*{name}" class="form-control" /></td>
+						</tr>
+						<tr>
+							<td>[[#{product.description}]]</td>
+							<td><input id="description" name="description" type="text"
+								th:field="*{description}" class="form-control" /></td>
+						</tr>
+						<tr>
+							<td>[[#{product.price}]]</td>
+							<td><input id="price" name="price" type="text"
+								th:field="*{price}" class="form-control" /></td>
+						</tr>
+						<tr>
+							<td>[[#{product.status}]]</td>
+							<td><input id="status" name="status" type="text"
+								th:field="*{status}" class="form-control" /></td>
+						</tr>
+					</table>
+					<button type="submit" name="modificar" class="btn btn-primary">
+						<i class="fas fa-check"></i> [[#{action.modify}]]
+					</button>
+					<a th:href="@{/product}" class="btn btn-primary"> <i
+						class="fas fa-arrow-left"></i> [[#{action.return}]]
+					</a>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="plantilla/plantilla :: footer"></footer>
+
+	<section th:replace="plantilla/plantilla :: script-bootstrap"></section>
 </body>
 </html>
