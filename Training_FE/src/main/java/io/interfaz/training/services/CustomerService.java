@@ -20,9 +20,17 @@ import io.interfaz.training.pojos.Customers;
 public class CustomerService {
 
 	@Autowired
-	private CustomerDAO customer;
+	private CustomerDAO customerDAO;
 	
 	public List<Customers> getAllCustomer() {
-		return customer.getAll();		
+		return customerDAO.getAll();		
+	}
+	
+	public Customers getCustomer(int id) {
+		return customerDAO.getById(id);
+	}
+	
+	public Customers addCustomer(Customers customer) {
+		return customerDAO.createCustomer(customer);
 	}
 }
