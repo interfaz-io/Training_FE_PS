@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link
@@ -13,7 +13,6 @@
 <body>
 	<header th:replace="plantilla/plantilla :: header"></header>
 
-
 	<div class="container">
 		<div class="row">
 			<h1 class="text-center text-secondary"
@@ -22,7 +21,7 @@
 			<form th:action="@{/addOrder}" method="post">
 				<div class="row">
 					<div class="col" style="margin-left: 300px">
-						<input class="form-control" placeholder="Product Name"
+						<input id="productSelected" class="form-control" placeholder="Product Name"
 							style="margin-bottom: 20px">
 					</div>
 					<div class="col">
@@ -31,8 +30,6 @@
 							th:utext="#{search}"><i class="fas fa-search"></i></a>
 					</div>
 				</div>
-
-
 
 				<table class="table table-secondary">
 					<tr style="text-align: center;">
