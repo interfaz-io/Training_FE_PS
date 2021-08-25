@@ -32,15 +32,7 @@ public class Products {
 	private BigDecimal price;
 	
 	private String status;
-	
-//	public Products(int id, String name, String description, double price, String status) {
-//		this.id = id;
-//		this.name = name;
-//		this.description = description;
-//		this.price = price;
-//		this.status = status;
-//	}
-//
+
 //	public int getId() {
 //		return id;
 //	}

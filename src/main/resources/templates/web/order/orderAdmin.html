@@ -28,17 +28,10 @@
 			</div>
 
 			<div class="col">
-
-				<button type="button" class="btn btn-primary dropdown-toggle"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-					th:utext="#{clients}" data-bs-toggle="dropdown"></button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Oscar</a> <a
-						class="dropdown-item" href="#">Jose</a> <a class="dropdown-item"
-						href="#">Maria</a>
-
-				</div>
-
+				<select class="form-select" aria-label="Default select example"  >
+					<option selected th:utext="#{clients}" disabled></option>
+					<option th:each="customer: ${customers}" th:text="${customer.firstName} + ' '+ ${customer.lastName}" ></option>
+				</select>
 			</div>
 		</div>
 
@@ -55,6 +48,7 @@
 				<th th:utext="Subtotal"></th>
 				<th th:utext="IVA"></th>
 				<th th:utext="Total"></th>
+				<th ></th>
 
 			</tr>
 			<tr style="text-align: center;" th:each="order: ${orders}">
@@ -64,10 +58,8 @@
 				<td th:text="${order.subtotal}" />
 				<td th:text="${order.iva}" />
 				<td th:text="${order.totalIva}" />
-				<!-- 				<td><a th:href="'/peopleWeb/' + ${product.id} + '/update'" -->
-				<!-- 					class="btn btn-primary" type="button">Ver Detalles <i -->
-				<!-- 						class="far fa-edit"></i> -->
-				<!-- 				</a></td> -->
+				<td><a type="button" href="/order" class="btn btn-secondary"  th:utext="#{details}"></a> </td>
+
 			</tr>
 		</table>
 	</div>
