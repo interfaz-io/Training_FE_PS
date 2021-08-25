@@ -2,10 +2,6 @@
  * 
  */
 package io.interfaz.training.controllers;
-
-
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.interfaz.training.pojos.Customers;
-import io.interfaz.training.pojos.Products;
 import io.interfaz.training.services.CustomerService;
 
 /**
@@ -32,7 +27,6 @@ public class CustomerController {
 	
 	@GetMapping("/add")
 	public String newCustomer() {
-		
 		return "web/customer/addCustomer";
 	}
 	
