@@ -24,7 +24,7 @@ public class Customers {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private int countryId;
+	private int countryID;
 	private String status;
 	
 	private ArrayList<Orders> orders;
