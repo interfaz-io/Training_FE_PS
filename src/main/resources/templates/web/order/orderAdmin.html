@@ -59,7 +59,7 @@
 			</tr>
 			<tr style="text-align: center;" th:each="order: ${orders}">
 				<td th:text="${order.id}"></td>
-				<td th:text="${order.dateFormat}" />
+				<td th:text="${order.purchaseDate}" />
 				<td th:text="${order.customerId}" />
 				<td th:text="${order.subtotal}" />
 				<td th:text="${order.iva}" />
