@@ -25,7 +25,7 @@ public class OrderDetailDAO {
 	private final WebClient client;
 
 	public OrderDetailDAO(WebClient.Builder builder) {
-		this.client = builder.baseUrl("http://localhost:9080").build();
+		this.client = builder.baseUrl("http://be-training.us-east-1.elasticbeanstalk.com").build();
 	}
 
 	public List<OrdersDetails> getAll() {

@@ -24,5 +24,6 @@ public class OrdersDetails {
 	 private int quantity;
 	 private BigDecimal price;
 	 private int totalAmount;
-
+	 
+	 private Products products;
 }
