@@ -40,12 +40,8 @@ public class OrderController {
 
 	@GetMapping()
 	public String getAllOrders(Model model) {
-		ArrayList<Orders> listOrders = new ArrayList<>();
-		LocalDateTime purchaseDate = LocalDateTime.now();
-		listOrders.add(new Orders(1, purchaseDate, 1, BigDecimal.valueOf(5234), BigDecimal.valueOf(0.13)));
-		listOrders.add(new Orders(2, purchaseDate, 2, BigDecimal.valueOf(7784), BigDecimal.valueOf(0.13)));
-		listOrders.add(new Orders(3, purchaseDate, 3, BigDecimal.valueOf(1425), BigDecimal.valueOf(0.13)));
-		model.addAttribute("orders", listOrders);
+
+		model.addAttribute("orders", serviceOrder.getAllOrder());
 		return "web/order/orderAdmin";
 	}
 	
