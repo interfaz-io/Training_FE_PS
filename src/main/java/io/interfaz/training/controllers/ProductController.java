@@ -43,7 +43,7 @@ public class ProductController {
 	@GetMapping("/{id}/update")
 	public String updateProduct(@PathVariable int id, Model model) {
 
-		model.addAttribute("product", new Products(id, "name 1", "desc 1", 5.5, "available"));
+	//	model.addAttribute("product", new Products(id, "name 1", "desc 1", 5.5, "available"));
 		return "web/product/updateProduct";
 	}
 }
