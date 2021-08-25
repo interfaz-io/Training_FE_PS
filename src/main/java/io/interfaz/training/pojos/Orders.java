@@ -3,12 +3,10 @@
  */
 package io.interfaz.training.pojos;
 
-
-
-
+import java.util.Date;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+//import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,14 +23,14 @@ import lombok.NoArgsConstructor;
 public class Orders {
 
 	private int id;
-	private LocalDateTime purchaseDate;
+	private Date purchaseDate;
 	private int customerId;
 	private BigDecimal subtotal;
 	private BigDecimal iva;
 	private BigDecimal total;
 	
 	
-	public Orders(int id, LocalDateTime purchaseDate, int customerId, BigDecimal subtotal, BigDecimal iva) {
+	public Orders(int id, Date purchaseDate, int customerId, BigDecimal subtotal, BigDecimal iva) {
 		this.id = id;
 		this.purchaseDate = purchaseDate;
 		this.customerId = customerId;
@@ -51,12 +49,12 @@ public class Orders {
 	}
 
 
-	public LocalDateTime getPurchaseDate() {
+	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
 
 
-	public void setPurchaseDate(LocalDateTime purchaseDate) {
+	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 
@@ -100,12 +98,12 @@ public class Orders {
 		this.total = total;
 	}
 	
-	public String dateFormat () {
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-		String formatDateTime = purchaseDate.format(format);
-		return formatDateTime;
-		
-	}
+//	public String dateFormat () {
+//		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//		String formatDateTime = purchaseDate.format(format);
+//		return formatDateTime;
+//		
+//	}
 	public BigDecimal totalIva() {
 		BigDecimal resultado= subtotal.multiply(iva);
 		return subtotal.add(resultado) ;
