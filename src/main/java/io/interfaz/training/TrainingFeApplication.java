@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TrainingFeApplication {
 
 	public static void main(String[] args) {
-		//System.out.println("hola");
+		//System.out.println("cambio para que funciones");
 		SpringApplication.run(TrainingFeApplication.class, args);
 		
 	}

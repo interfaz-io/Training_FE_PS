@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.interfaz.training</groupId>
-	<artifactId>Training_FE</artifactId>
+	<artifactId>Training_FE_PS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Training_FE</name>
+	<name>Training_FE_PS</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
