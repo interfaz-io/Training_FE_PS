@@ -30,7 +30,6 @@ public class ProductController {
 
 	@GetMapping()
 	public String getAllProducts(Model model) {
-
 		model.addAttribute("products", serviceProduct.getAllProduct());
 		return "web/product/productAdmin";
 	}
