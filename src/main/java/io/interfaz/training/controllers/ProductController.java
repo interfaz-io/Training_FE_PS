@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.interfaz.training.services.ProductService;
@@ -46,4 +48,12 @@ public class ProductController {
 	//	model.addAttribute("product", new Products(id, "name 1", "desc 1", 5.5, "available"));
 		return "web/product/updateProduct";
 	}
+	
+	@PostMapping("/add")
+	public String createProduct(@ModelAttribute Products products) {
+		
+		serviceProduct.addProduct(products);
+		return "redirect:/product";
+	}
+	
 }
