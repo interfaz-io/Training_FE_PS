@@ -21,7 +21,7 @@
 					th:utext="#{update-product.title-details}">Detalles del
 					Producto</h1>
 
-				<form th:action="'/product/'+${product.id}+'/update'" method="post"
+				<form th:action="'/product/'+${product.id}+'/updateProduct'" method="post"
 					th:object="${product}">
 
 					<input id="id" name="id" type="hidden" th:field="*{id}">
