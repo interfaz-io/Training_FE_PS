@@ -6,9 +6,9 @@ phases:
   post_build:    
   commands:      
       - mvn package -DskipTests
-      - mv target/Training_FE-*.jar ./
+      - mv target/Training_FE_PS-*.jar ./
 artifacts:  
    files:    
       - '*.jar'    
       - .ebextensions/**/* 
-   name: $(echo `ls Training_FE-*.jar | sed 's/\.[^.]*$/\.zip/'`)
+   name: $(echo `ls Training_FE_PS-*.jar | sed 's/\.[^.]*$/\.zip/'`)
