@@ -19,21 +19,20 @@
 			<h1 class="text-center text-secondary"
 				style="border-bottom: 1px solid coral;"
 				th:utext="#{add-order.title}"></h1>
-			<form th:action="@{/addOrder}" method="post">
+			<form th:action="@{/order/add}" method="get">
 				<div class="row">
 					<div class="col" style="margin-left: 300px">
-						<input class="form-control" placeholder="Product Name"
+						<input class="form-control" type="text" id="txtSearch" name="keyword" placeholder="Product Name"
 							style="margin-bottom: 20px">
 					</div>
 					<div class="col">
 
-						<a type="button" href="/order" class="btn btn-secondary"
-							th:utext="#{search}"><i class="fas fa-search"></i></a>
+						<button class="btn btn-primary" type="submit">Buscar</button>
 					</div>
 				</div>
+			</form>
 
-
-
+			<form th:action="@{/addOrder}" method="post">
 				<table class="table table-secondary">
 					<tr style="text-align: center;">
 						<th>id</th>

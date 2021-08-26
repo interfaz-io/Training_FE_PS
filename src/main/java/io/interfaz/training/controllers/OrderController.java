@@ -32,6 +32,9 @@ public class OrderController {
 	private OrderService serviceOrder;
 	
 	@Autowired
+	private ProductService productOrder;
+	
+	@Autowired
 	private ProductController productController;
 	
 	@Autowired
@@ -63,8 +66,21 @@ public class OrderController {
 	
 	//el model lo puse para poder pasar la lista de productos quemada
 	@GetMapping("/add")
-	public String addOrder(Model model){
-		getAllProducts(model);
+	public String addOrder(Model model, String keyword){
+		if(keyword != null && !keyword.equalsIgnoreCase("")) {
+			model.addAttribute("products", productOrder.searchProductByName(keyword));
+		}else {
+			model.addAttribute("products", productOrder.getAllProduct());
+		}
+		
+		//getAllProducts(model);
 		return "web/order/addOrder";
 	}
+	
+	@GetMapping("/{id}")
+	public String getDetails(@PathVariable int id,Model model) {
+		model.addAttribute("orderDetails", serviceOrder.getAllDetails(id));
+		return "web/order/orderInfo";
+	}
+	
 }

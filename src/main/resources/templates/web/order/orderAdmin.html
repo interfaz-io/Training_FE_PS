@@ -58,7 +58,7 @@
 				<td th:text="${order.subtotal}" />
 				<td th:text="${order.iva}" />
 				<td th:text="${order.totalIva}" />
-				<td><a type="button" href="/order" class="btn btn-secondary"  th:utext="#{details}"></a> </td>
+				<td><a type="button" th:href="'/order/' + ${order.id}" class="btn btn-secondary"  th:utext="#{details}"></a> </td>
 
 			</tr>
 		</table>
