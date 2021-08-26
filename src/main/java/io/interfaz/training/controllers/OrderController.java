@@ -37,12 +37,9 @@ public class OrderController {
 	private ProductService productOrder;
 	
 	@Autowired
-	private ProductController productController;
-	
 	private CustomerService serviceCustomer;
 
-	@Autowired
-	private ProductService serviceProduct;
+	
 
 
 	@GetMapping()
@@ -71,7 +68,7 @@ public class OrderController {
 		return "web/order/orderInfo";
 	}
 	
-}
+
 
 	@GetMapping("/getCustomer")
 	public String getCustomer(String customers, Model model) {
@@ -88,5 +85,6 @@ public class OrderController {
 		model.addAttribute("customer2", customers);
 		return "web/order/orderAdmin";
 	}
+	
 	}
 
