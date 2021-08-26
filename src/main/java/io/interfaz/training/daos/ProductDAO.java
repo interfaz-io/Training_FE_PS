@@ -47,4 +47,10 @@ public class ProductDAO {
 	public Products updateProduct(int id, Products product) {
 		return this.client.patch().uri("/products/"+id).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(product), Products.class).retrieve().bodyToMono(Products.class).block();
 	}
+	
+	public List<Products> getByName(String name) {
+		Mono<Products[]> pdt = this.client.get().uri("/products/search/"+name).accept(MediaType.APPLICATION_JSON).retrieve()
+				.bodyToMono(Products[].class);
+		return  Arrays.asList(pdt.block());
+	}
 }

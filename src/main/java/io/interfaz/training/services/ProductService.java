@@ -36,4 +36,8 @@ public class ProductService {
 	public Products modifyProduct(int id, Products product) {
 		return productDAO.updateProduct(id, product);
 	}
+	
+	public List<Products> searchProductByName(String name) {
+		return productDAO.getByName(name);		
+	}
 }
