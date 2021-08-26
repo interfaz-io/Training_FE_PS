@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import io.interfaz.training.pojos.Orders;
+import io.interfaz.training.pojos.OrdersDetails;
 import reactor.core.publisher.Mono;
 
 /**
@@ -47,6 +48,12 @@ public class OrderDAO {
 		return this.client.patch().uri("/orders/" + id)
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(order), Orders.class)
 				.retrieve().bodyToMono(Orders.class).block();
+	}
+	
+	public List<OrdersDetails> getAllDetails(int orderID) {
+		Mono<OrdersDetails[]> pdt = this.client.get().uri("/details/" + orderID).accept(MediaType.APPLICATION_JSON).retrieve()
+				.bodyToMono(OrdersDetails[].class);
+		return Arrays.asList(pdt.block());
 	}
 	
 	public  List<Orders> orderByCustomer (int id) {

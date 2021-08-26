@@ -34,6 +34,11 @@ public class OrderController {
 	private OrderService serviceOrder;
 
 	@Autowired
+	private ProductService productOrder;
+	
+	@Autowired
+	private ProductController productController;
+	
 	private CustomerService serviceCustomer;
 
 	@Autowired
@@ -49,10 +54,24 @@ public class OrderController {
 	}
 
 	@GetMapping("/add")
-	public String addOrder(Model model) {
-		model.addAttribute("products", serviceProduct.getAllProduct());
+	public String addOrder(Model model, String keyword){
+		if(keyword != null && !keyword.equalsIgnoreCase("")) {
+			model.addAttribute("products", productOrder.searchProductByName(keyword));
+		}else {
+			model.addAttribute("products", productOrder.getAllProduct());
+		}
+		
+		//getAllProducts(model);
 		return "web/order/addOrder";
 	}
+	
+	@GetMapping("/{id}")
+	public String getDetails(@PathVariable int id,Model model) {
+		model.addAttribute("orderDetails", serviceOrder.getAllDetails(id));
+		return "web/order/orderInfo";
+	}
+	
+}
 
 	@GetMapping("/getCustomer")
 	public String getCustomer(String customers, Model model) {

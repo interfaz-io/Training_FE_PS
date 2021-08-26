@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import io.interfaz.training.daos.OrderDAO;
 import io.interfaz.training.pojos.Orders;
+import io.interfaz.training.pojos.OrdersDetails;
 import io.interfaz.training.pojos.Products;
 
 /**
@@ -35,6 +36,10 @@ public class OrderService {
 	
 	public Orders modifyProduct(int id, Orders product) {
 		return orderDAO.updateOrder(id, product);
+	}
+	
+	public List<OrdersDetails> getAllDetails(int orderID){
+		return orderDAO.getAllDetails(orderID);
 	}
 	
 	public List<Orders> getOrderByCustomer(int id) {
