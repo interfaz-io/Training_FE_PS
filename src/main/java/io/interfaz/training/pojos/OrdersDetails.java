@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
  @NoArgsConstructor
 public class OrdersDetails {
 	 
-	 private int id;
+	 private Integer id;
 	 private int order;
 	 private int productId;
 	 private int quantity;

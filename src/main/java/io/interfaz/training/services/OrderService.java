@@ -30,7 +30,7 @@ public class OrderService {
 		return orderDAO.getById(id);
 	}
 	
-	public Orders addProduct(Orders product) {
+	public Orders addOrder(Orders product) {
 		return orderDAO.createOrder(product);
 	}
 	

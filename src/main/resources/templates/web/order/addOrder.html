@@ -31,7 +31,7 @@
 				</div>
 			</form>
 
-			<form th:action="@{/addOrder}" method="post">
+			<form th:action="@{/order/addOrderDetail}" method="post">
 				<table class="table table-secondary">
 					<tr style="text-align: center;">
 						<th>id</th>
@@ -46,13 +46,17 @@
 					</tr>
 
 					<tr th:each="product: ${products}" style="text-align: center;">
+					
 						<td th:text="${product.id}"></td>
 						<td th:text="${product.name}" />
 						<td th:text="${product.description}" />
 						<td th:text="${product.price}" />
 						<td th:text="${product.status}" />
-						<td><a type="button" href="/order" class="btn btn-secondary"
-							th:utext="#{product}"></a></td>
+						<td>
+						<input id="idProduct" name="idProduct" type="hidden" th:value="${product.id}">
+					
+						<input type="submit" class="btn btn-secondary" th:value="#{product}">
+					</td>
 						<td><input type="number" value="0" min="0" max="1000"
 							step="1" /></td>
 
@@ -63,6 +67,7 @@
 						<button type="submit" name="agregar" class="btn btn-primary">
 							<i class="fas fa-plus"></i> [[#{action.add-order}]]
 						</button>
+
 
 					</div>
 					<div class="col">

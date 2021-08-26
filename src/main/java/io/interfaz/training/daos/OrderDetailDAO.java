@@ -29,22 +29,22 @@ public class OrderDetailDAO {
 	}
 
 	public List<OrdersDetails> getAll() {
-		Mono<OrderDetailsDTO> pdt = this.client.get().uri("/ordersDetails").accept(MediaType.APPLICATION_JSON).retrieve()
+		Mono<OrderDetailsDTO> pdt = this.client.get().uri("/orderDetails").accept(MediaType.APPLICATION_JSON).retrieve()
 				.bodyToMono(OrderDetailsDTO.class);
 		return pdt.block().get_embedded().getOrdersDetails();
 
 	}
 	
 	public OrdersDetails getById(int id) {
-		return this.client.get().uri("/ordersDetails/" + id).accept(MediaType.APPLICATION_JSON).retrieve()
+		return this.client.get().uri("/orderDetail/" + id).accept(MediaType.APPLICATION_JSON).retrieve()
 				.bodyToMono(OrdersDetails.class).block();
 	}
 	
 	public OrdersDetails createOrderDetail(OrdersDetails ordersDetail) {
-		return this.client.post().uri("/ordersDetails").header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(ordersDetail), OrdersDetails.class).retrieve().bodyToMono(OrdersDetails.class).block();
+		return this.client.post().uri("/orderDetails").header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(ordersDetail), OrdersDetails.class).retrieve().bodyToMono(OrdersDetails.class).block();
 	}
 	
 	public OrdersDetails updateOrderDetail(int id, OrdersDetails ordersDetail) {
-		return this.client.patch().uri("/ordersDetails/"+id).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(ordersDetail), OrdersDetails.class).retrieve().bodyToMono(OrdersDetails.class).block();
+		return this.client.patch().uri("/orderDetail/"+id).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(ordersDetail), OrdersDetails.class).retrieve().bodyToMono(OrdersDetails.class).block();
 	}
 }
