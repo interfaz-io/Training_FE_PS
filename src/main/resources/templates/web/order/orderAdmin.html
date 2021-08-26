@@ -29,15 +29,16 @@
 
 			<div class="col">
 				<form th:action="@{/order/getCustomer}" method="get">
-					<input id="customers" name="customers" type="text" placeholder="Email"></input>
-					<button class="btn btn-primary" type="submit">Seleccionar</button>
+					<input id="email" name="email" type="text" placeholder="Email"></input>
+					<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> [[#{search}]]</button>
 				</form>
 			</div>
 		</div>
 
-
-
-		<br /> <br />
+		<span th:if="${customer2 == null}" style="margin-top: 30px; font-size: 30px;">No se ha seleccionado el cliente</span> <span
+			th:if="${customer2 != null}"
+			th:utext="${customer2.firstName}+' '+ ${customer2.lastName}" style="margin-top: 30px; font-size: 30px;"></span> <br />
+		<br />
 		<h1 class="text-center text-secondary "
 			style="border-bottom: 1px solid coral;" th:utext="#{orderList}"></h1>
 		<table class="table table-secondary">
@@ -58,12 +59,11 @@
 				<td th:text="${order.subtotal}" />
 				<td th:text="${order.iva}" />
 				<td th:text="${order.totalIva}" />
-				<td><a type="button" th:href="'/order/' + ${order.id}" class="btn btn-secondary"  th:utext="#{details}"></a> </td>
+				<td><a type="button" th:href="'/order/' + ${order.id}"
+					class="btn btn-secondary" th:utext="#{details}"></a></td>
 
 			</tr>
-			<tr>
-				<td th:text="${customer2}"></td>
-			</tr>
+
 		</table>
 	</div>
 
