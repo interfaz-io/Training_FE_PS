@@ -48,5 +48,11 @@ public class OrderDAO {
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(order), Orders.class)
 				.retrieve().bodyToMono(Orders.class).block();
 	}
+	
+	public  List<Orders> orderByCustomer (int id) {
+		Mono<Orders[]> pdt = this.client.get().uri("/orders/customer/" + id).accept(MediaType.APPLICATION_JSON).retrieve()
+				.bodyToMono(Orders[].class);
+		return Arrays.asList(pdt.block());
+	}
 
 }

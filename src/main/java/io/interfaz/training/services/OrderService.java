@@ -36,4 +36,8 @@ public class OrderService {
 	public Orders modifyProduct(int id, Orders product) {
 		return orderDAO.updateOrder(id, product);
 	}
+	
+	public List<Orders> getOrderByCustomer(int id) {
+		return orderDAO.orderByCustomer(id);	
+	}
 }

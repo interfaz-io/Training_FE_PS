@@ -33,14 +33,21 @@ public class CustomerDAO {
 		return Arrays.asList(pdt.block());
 
 	}
-	
+
+	public Customers getByEmail(String email) {
+		Mono<Customers[]> pdt = this.client.get().uri("/customers/searchEmail/" + email)
+				.accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(Customers[].class);
+		return pdt.block()[0];
+	}
+
 	public Customers getById(int id) {
 		return this.client.get().uri("/customers/" + id).accept(MediaType.APPLICATION_JSON).retrieve()
 				.bodyToMono(Customers.class).block();
 	}
-	
+
 	public Customers createCustomer(Customers customer) {
-		return this.client.post().uri("/customers").header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(customer), Customers.class).retrieve().bodyToMono(Customers.class).block();
+		return this.client.post().uri("/customers").header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.body(Mono.just(customer), Customers.class).retrieve().bodyToMono(Customers.class).block();
 	}
 
 }
