@@ -45,7 +45,7 @@
 
 					</tr>
 
-					<tr th:each="product: ${products}" style="text-align: center;">
+					<tr th:each="product:  ${products}" style="text-align: center;">
 					
 						<td th:text="${product.id}"></td>
 						<td th:text="${product.name}" />
@@ -53,9 +53,8 @@
 						<td th:text="${product.price}" />
 						<td th:text="${product.status}" />
 						<td>
-						<input id="idProduct" name="idProduct" type="hidden" th:value="${product.id}">
-					
-						<input type="submit" class="btn btn-secondary" th:value="#{product}">
+						<input id="idProduct " name="idProduct" type="hidden" th:value="${product.id}">			
+						<input type="submit" class="btn btn-secondary" >
 					</td>
 						<td><input type="number" value="0" min="0" max="1000"
 							step="1" /></td>
