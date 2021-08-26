@@ -17,7 +17,7 @@
 		style="padding: 10px; text-align: center; margin-top: 20px;">
 		<div class="card">
 			<div class="card-body" style="margin-left: auto; margin-right: auto;">
-				<h2>Agregar Nueva Cliente</h2>
+				<h2>Agregar Cliente</h2>
 				<form th:action="@{/customer/add}" method="post">
 
 					<p th:utext="#{firstname}">First name:</p>
@@ -34,6 +34,7 @@
 					
 					<p th:utext="#{country}">Pais:</p>
 					<input id="countryID" name="countryID" type="number" required /> <br />
+					
 					
 					<br /> <input type="submit" th:value="#{btnadd}">
 				</form>
