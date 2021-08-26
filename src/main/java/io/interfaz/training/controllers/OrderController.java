@@ -32,37 +32,59 @@ public class OrderController {
 
 	@Autowired
 	private OrderService serviceOrder;
-	
-	@Autowired 
-	private CustomerService serviceCustomer;
+
+	@Autowired
+	private ProductService productOrder;
 	
 	@Autowired
-	private ProductService serviceProduct;
+	private CustomerService serviceCustomer;
 
-	//<td><a th:href="'/people/getById/' + ${person.id}" th:text="${person.id}"></a></td>
+	
+
 
 	@GetMapping()
 	public String getAllOrders(Model model) {
-		model.addAttribute("customer2", "");
+		model.addAttribute("customer2", "-----");
 		model.addAttribute("orders", serviceOrder.getAllOrder());
 		model.addAttribute("customers", serviceCustomer.getAllCustomer());
 		return "web/order/orderAdmin";
 	}
-	
-	//el model lo puse para poder pasar la lista de productos quemada
+
 	@GetMapping("/add")
-	public String addOrder(Model model){
-		model.addAttribute("products", serviceProduct.getAllProduct());
+	public String addOrder(Model model, String keyword){
+		if(keyword != null && !keyword.equalsIgnoreCase("")) {
+			model.addAttribute("products", productOrder.searchProductByName(keyword));
+		}else {
+			model.addAttribute("products", productOrder.getAllProduct());
+		}
+		
+		//getAllProducts(model);
 		return "web/order/addOrder";
 	}
 	
+	@GetMapping("/{id}")
+	public String getDetails(@PathVariable int id,Model model) {
+		model.addAttribute("orderDetails", serviceOrder.getAllDetails(id));
+		return "web/order/orderInfo";
+	}
+	
+
+
 	@GetMapping("/getCustomer")
 	public String getCustomer(String customers, Model model) {
-		
-		model.addAttribute("orders", serviceOrder.getAllOrder());
+		System.out.println( customers);
+		if(customers==null) {
+			model.addAttribute("customer2", "hola");
+			
+		}else {
+			
+			model.addAttribute("customer2", serviceCustomer.getCustomerByEmail(customers).getEmail());
+		}
+		model.addAttribute("orders", serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(customers).getId()));
 		model.addAttribute("customers", serviceCustomer.getAllCustomer());
 		model.addAttribute("customer2", customers);
 		return "web/order/orderAdmin";
 	}
 	
-}
+	}
+

@@ -29,7 +29,7 @@
 
 			<div class="col">
 				<form th:action="@{/order/getCustomer}" method="get">
-					<input id="customers" name="customers" type="text"></input>
+					<input id="customers" name="customers" type="text" placeholder="Email"></input>
 					<button class="btn btn-primary" type="submit">Seleccionar</button>
 				</form>
 			</div>
@@ -58,8 +58,7 @@
 				<td th:text="${order.subtotal}" />
 				<td th:text="${order.iva}" />
 				<td th:text="${order.totalIva}" />
-				<td><a type="button" href="/order" class="btn btn-secondary"
-					th:utext="#{details}"></a></td>
+				<td><a type="button" th:href="'/order/' + ${order.id}" class="btn btn-secondary"  th:utext="#{details}"></a> </td>
 
 			</tr>
 			<tr>
