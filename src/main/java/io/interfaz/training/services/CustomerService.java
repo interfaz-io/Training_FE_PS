@@ -3,6 +3,7 @@
  */
 package io.interfaz.training.services;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +34,9 @@ public class CustomerService {
 	public Customers addCustomer(Customers customer) {
 		return customerDAO.createCustomer(customer);
 	}
+	public Customers getCustomerByEmail(String email) {
+		return customerDAO.getByEmail(email);
+
+	}
+	
 }

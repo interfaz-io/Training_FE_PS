@@ -28,10 +28,10 @@
 			</div>
 
 			<div class="col">
-				<select class="form-select" aria-label="Default select example"  >
-					<option selected th:utext="#{clients}" disabled></option>
-					<option th:each="customer: ${customers}" th:text="${customer.firstName} + ' '+ ${customer.lastName}" ></option>
-				</select>
+				<form th:action="@{/order/getCustomer}" method="get">
+					<input id="customers" name="customers" type="text" placeholder="Email"></input>
+					<button class="btn btn-primary" type="submit">Seleccionar</button>
+				</form>
 			</div>
 		</div>
 
@@ -48,7 +48,7 @@
 				<th th:utext="Subtotal"></th>
 				<th th:utext="IVA"></th>
 				<th th:utext="Total"></th>
-				<th ></th>
+				<th></th>
 
 			</tr>
 			<tr style="text-align: center;" th:each="order: ${orders}">
@@ -60,6 +60,9 @@
 				<td th:text="${order.totalIva}" />
 				<td><a type="button" th:href="'/order/' + ${order.id}" class="btn btn-secondary"  th:utext="#{details}"></a> </td>
 
+			</tr>
+			<tr>
+				<td th:text="${customer2}"></td>
 			</tr>
 		</table>
 	</div>

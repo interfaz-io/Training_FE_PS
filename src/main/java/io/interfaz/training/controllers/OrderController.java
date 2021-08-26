@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import io.interfaz.training.pojos.Customers;
 import io.interfaz.training.pojos.Orders;
 import io.interfaz.training.pojos.Products;
 import io.interfaz.training.services.CustomerService;
@@ -30,41 +32,27 @@ public class OrderController {
 
 	@Autowired
 	private OrderService serviceOrder;
-	
+
 	@Autowired
 	private ProductService productOrder;
 	
 	@Autowired
 	private ProductController productController;
 	
+	private CustomerService serviceCustomer;
+
 	@Autowired
-	private CustomerController customerController;
+	private ProductService serviceProduct;
 
-
-	
-	public void getAllProducts(Model model) {
-		productController.getAllProducts(model);
-	
-	}
-	public void allCustomer(Model model) {
-		customerController.allCustomer(model);
-	}
-	
-//	@GetMapping("/getById/{id}")
-//	public String getById(@PathVariable int id, Model model){
-//		 model.addAttribute("customers",this.service.getById(id)) ;
-//		 return "people/information";
-//	}
-	//<td><a th:href="'/people/getById/' + ${person.id}" th:text="${person.id}"></a></td>
 
 	@GetMapping()
 	public String getAllOrders(Model model) {
+		model.addAttribute("customer2", "-----");
 		model.addAttribute("orders", serviceOrder.getAllOrder());
-		allCustomer(model);
+		model.addAttribute("customers", serviceCustomer.getAllCustomer());
 		return "web/order/orderAdmin";
 	}
-	
-	//el model lo puse para poder pasar la lista de productos quemada
+
 	@GetMapping("/add")
 	public String addOrder(Model model, String keyword){
 		if(keyword != null && !keyword.equalsIgnoreCase("")) {
@@ -84,3 +72,21 @@ public class OrderController {
 	}
 	
 }
+
+	@GetMapping("/getCustomer")
+	public String getCustomer(String customers, Model model) {
+		System.out.println( customers);
+		if(customers==null) {
+			model.addAttribute("customer2", "hola");
+			
+		}else {
+			
+			model.addAttribute("customer2", serviceCustomer.getCustomerByEmail(customers).getEmail());
+		}
+		model.addAttribute("orders", serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(customers).getId()));
+		model.addAttribute("customers", serviceCustomer.getAllCustomer());
+		model.addAttribute("customer2", customers);
+		return "web/order/orderAdmin";
+	}
+	}
+

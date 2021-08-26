@@ -41,4 +41,8 @@ public class OrderService {
 	public List<OrdersDetails> getAllDetails(int orderID){
 		return orderDAO.getAllDetails(orderID);
 	}
+	
+	public List<Orders> getOrderByCustomer(int id) {
+		return orderDAO.orderByCustomer(id);	
+	}
 }
