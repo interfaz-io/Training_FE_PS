@@ -51,18 +51,23 @@
 				<tr th:each="product, status: ${products}"
 					style="text-align: center;">
 					<form th:action="@{/order/addOrderDetail}" method="post">
-					<td th:text="${product.id}"></td>
-					<td th:text="${product.name}" />
-					<td th:text="${product.description}" />
-					<td th:text="${product.price}" />
-					<td th:text="${product.status}" />
-					<td><input th:id="'idProduct'+${status.index}"
-						th:name="idProduct" type="hidden" th:value="${product.id}">
+						<td th:text="${product.id}"></td>
+						<td th:text="${product.name}" />
+						<td th:text="${product.description}" />
 
-						<input type="submit" class="btn btn-secondary"
-						th:value="#{product}"></td>
-					<td><input id="quantity" type="number" name="quantity"
-						value="1" min="0" max="1000" step="1" /></td>
+						<td th:text="${product.price}" />
+
+						<td th:text="${product.status}" />
+						<td><input th:id="'idProduct'+${status.index}"
+							th:name="idProduct" type="hidden" th:value="${product.id}">
+
+							<input type="submit" class="btn btn-secondary"
+							th:value="#{product}"></td>
+
+						<td><input th:id="'quantity'+${status.index}" type="number"
+							th:name="quantity" value="1" min="0" max="1000" step="1" /></td> <input
+							th:id="'productPrice'+${status.index}" type="hidden"
+							th:name="productPrice" th:value="${product.price}" />
 					</form>
 				</tr>
 
@@ -77,7 +82,7 @@
 				</div>
 				<div class="col">
 
-					<a th:href="@{/order/all}" class="btn btn-primary"> <i
+					<a th:href="@{/order}" class="btn btn-primary"> <i
 						class="fas fa-arrow-left"></i> [[#{action.return}]]
 					</a>
 				</div>

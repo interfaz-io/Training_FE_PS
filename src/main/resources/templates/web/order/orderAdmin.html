@@ -39,11 +39,13 @@
 			</div>
 		</div>
 
-		<span th:if="${customer2 == null}"
+		<span th:if="${(null == customer2.getEmail())}"
 			style="margin-top: 30px; font-size: 30px;">No se ha
-			seleccionado el cliente</span> <span th:if="${customer2 != null}"
+			seleccionado el cliente</span> <span th:if="${!(customer2.getEmail()==null)}"
 			th:utext="${customer2.firstName}+' '+ ${customer2.lastName}"
 			style="margin-top: 30px; font-size: 30px;"></span> <br /> <br />
+			
+			
 		<h1 class="text-center text-secondary "
 			style="border-bottom: 1px solid coral;" th:utext="#{orderList}"></h1>
 		<table class="table table-secondary">
@@ -70,17 +72,12 @@
 			</tr>
 
 		</table>
+		<form class="d-flex" th:action="@{/order/return}" method="get">
+			<a href="#" onclick="this.parentNode.submit();" class="btn btn-secondary">[[#{action.return}]]
+			</a>
+		</form>
 	</div>
 
-<!-- 	<a class="btn btn-info" role="button" th:href="/order/return"> <span><i -->
-<!-- 			class="fas fa-search"></i> [[#{action.return}]]</span> -->
-<!-- 	</a> -->
-
-
-	<form class="d-flex" th:action="@{/order/return}" method="get">
-		<a href="#" onclick="this.parentNode.submit();" class="nav-link"
-			>[[#{action.return}]] </a>
-	</form>
 
 	<footer th:replace="plantilla/plantilla :: footer"></footer>
 
