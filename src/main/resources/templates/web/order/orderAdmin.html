@@ -24,7 +24,7 @@
 					<form th:action="@{/order/addNewOrder}" method="post">
 
 						<button type="submit" name="agregar" class="btn btn-primary">Agregar</button>
-                     
+
 					</form>
 				</div>
 			</div>
@@ -32,15 +32,18 @@
 			<div class="col">
 				<form th:action="@{/order/getCustomer}" method="get">
 					<input id="email" name="email" type="text" placeholder="Email"></input>
-					<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> [[#{search}]]</button>
+					<button class="btn btn-primary" type="submit">
+						<i class="fas fa-search"></i> [[#{search}]]
+					</button>
 				</form>
 			</div>
 		</div>
 
-		<span th:if="${customer2 == null}" style="margin-top: 30px; font-size: 30px;">No se ha seleccionado el cliente</span> <span
-			th:if="${customer2 != null}"
-			th:utext="${customer2.firstName}+' '+ ${customer2.lastName}" style="margin-top: 30px; font-size: 30px;"></span> <br />
-		<br />
+		<span th:if="${customer2 == null}"
+			style="margin-top: 30px; font-size: 30px;">No se ha
+			seleccionado el cliente</span> <span th:if="${customer2 != null}"
+			th:utext="${customer2.firstName}+' '+ ${customer2.lastName}"
+			style="margin-top: 30px; font-size: 30px;"></span> <br /> <br />
 		<h1 class="text-center text-secondary "
 			style="border-bottom: 1px solid coral;" th:utext="#{orderList}"></h1>
 		<table class="table table-secondary">
@@ -68,6 +71,16 @@
 
 		</table>
 	</div>
+
+<!-- 	<a class="btn btn-info" role="button" th:href="/order/return"> <span><i -->
+<!-- 			class="fas fa-search"></i> [[#{action.return}]]</span> -->
+<!-- 	</a> -->
+
+
+	<form class="d-flex" th:action="@{/order/return}" method="get">
+		<a href="#" onclick="this.parentNode.submit();" class="nav-link"
+			>[[#{action.return}]] </a>
+	</form>
 
 	<footer th:replace="plantilla/plantilla :: footer"></footer>
 
