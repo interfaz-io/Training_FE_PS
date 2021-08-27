@@ -19,32 +19,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Customers {
 
-	private int id;
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	private String email;
-	private int countryID;
+	private Integer countryID;
 	private String status;
 
 	private ArrayList<Orders> orders;
 
-	public Customers(int id, String firstName, String lastName, String email, int countryId, String status,
-			ArrayList<Orders> orders) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.countryID = countryId;
-		this.status = status;
-		this.orders = orders;
-	}
+	
+	  public Customers(Integer id, String firstName, String lastName, String email, Integer
+	  countryId, String status, ArrayList<Orders> orders) { super(); this.id = id;
+	  this.firstName = firstName; this.lastName = lastName; this.email = email;
+	  this.countryID = countryId; this.status = status; this.orders = orders; }
+	  
 
-	public int getId() {
+	
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -72,11 +69,11 @@ public class Customers {
 		this.email = email;
 	}
 
-	public int getCountryId() {
+	public Integer getCountryId() {
 		return countryID;
 	}
 
-	public void setCountryId(int countryId) {
+	public void setCountryId(Integer countryId) {
 		this.countryID = countryId;
 	}
 
