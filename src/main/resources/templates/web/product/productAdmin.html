@@ -22,7 +22,7 @@
 				type="button"><i class="fas fa-plus"></i>
 				[[#{action.add-product}]]</a>
 		</div>
-		<br /> 
+		<br />
 		<h1 class="text-center text-secondary"
 			style="border-bottom: 1px solid coral;"
 			th:utext="#{product-admin.title}"></h1>
@@ -46,6 +46,9 @@
 						[[#{action.edit}]] </a></td>
 			</tr>
 		</table>
+		<a th:href="@{/home}" class="btn btn-primary"> <i
+			class="fas fa-arrow-left"></i> [[#{action.return}]]
+		</a>
 	</div>
 
 	<footer th:replace="plantilla/plantilla :: footer"></footer>

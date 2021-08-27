@@ -24,22 +24,21 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerService serviceCustomer;
+
+	@GetMapping()
+	public String allCustomer(Model model) {
+		model.addAttribute("customers", serviceCustomer.getAllCustomer());
+		return "web/customer/allCustomer";
+	}
 	
 	@GetMapping("/add")
 	public String newCustomer() {
 		return "web/customer/addCustomer";
 	}
 	
-	@GetMapping()
-	public String allCustomer(Model model) {
-		
-		model.addAttribute("customers", serviceCustomer.getAllCustomer());
-		return "web/customer/allCustomer";
-	}
 	
 	@PostMapping("/add")
 	public String addCustomer(@ModelAttribute Customers customers) {
-		
 		System.out.print(customers);
 		serviceCustomer.addCustomer(customers);
 		return "redirect:/customer";

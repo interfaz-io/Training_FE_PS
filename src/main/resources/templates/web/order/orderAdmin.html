@@ -22,9 +22,9 @@
 			<div class="col">
 				<div class="d-grid gap-2 col-6">
 					<form th:action="@{/order/addNewOrder}" method="post">
-
-						<button type="submit" name="agregar" class="btn btn-primary">Agregar</button>
-
+						<button type="submit" name="agregar" class="btn btn-primary">
+							<i class="fas fa-plus"></i> [[#{action.add-order}]]
+						</button>
 					</form>
 				</div>
 			</div>
@@ -41,11 +41,12 @@
 
 		<span th:if="${(null == customer2.getEmail())}"
 			style="margin-top: 30px; font-size: 30px;">No se ha
-			seleccionado el cliente</span> <span th:if="${!(customer2.getEmail()==null)}"
+			seleccionado el cliente</span> <span
+			th:if="${!(customer2.getEmail()==null)}"
 			th:utext="${customer2.firstName}+' '+ ${customer2.lastName}"
 			style="margin-top: 30px; font-size: 30px;"></span> <br /> <br />
-			
-			
+
+
 		<h1 class="text-center text-secondary "
 			style="border-bottom: 1px solid coral;" th:utext="#{orderList}"></h1>
 		<table class="table table-secondary">
@@ -65,7 +66,7 @@
 				<td th:text="${order.customerId}" />
 				<td th:text="${order.subtotal}" />
 				<td th:text="${order.iva}" />
-				<td th:text="${order.totalIva}" />
+				<td th:text="${order.total}" />
 				<td><a type="button" th:href="'/order/' + ${order.id}"
 					class="btn btn-secondary" th:utext="#{details}"></a></td>
 
@@ -73,9 +74,11 @@
 
 		</table>
 		<form class="d-flex" th:action="@{/order/return}" method="get">
-			<a href="#" onclick="this.parentNode.submit();" class="btn btn-secondary">[[#{action.return}]]
+			<a href="#" onclick="this.parentNode.submit();"
+				class="btn btn-primary"><i class="fas fa-arrow-left"></i>[[#{action.return}]]
 			</a>
 		</form>
+
 	</div>
 
 
