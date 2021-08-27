@@ -69,14 +69,6 @@ public class Customers {
 		this.email = email;
 	}
 
-	public Integer getCountryId() {
-		return countryID;
-	}
-
-	public void setCountryId(Integer countryId) {
-		this.countryID = countryId;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -91,6 +83,14 @@ public class Customers {
 
 	public void setOrders(ArrayList<Orders> orders) {
 		this.orders = orders;
+	}
+
+	public Integer getCountryID() {
+		return countryID;
+	}
+	
+	public void setCountryID(Integer countryID) {
+		this.countryID = countryID;
 	}
 
 }

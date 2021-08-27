@@ -36,12 +36,7 @@ public class Orders {
 	
 	private BigDecimal total;
 	
-	
-//	
-//	  public Orders(int id, Date purchaseDate, int customerId, BigDecimal subtotal,
-//	  BigDecimal iva) { this.id = id; this.purchaseDate = purchaseDate;
-//	  this.customerId = customerId; this.subtotal = subtotal; this.iva = iva; }
-//	  
+	  
 	  
 	  public Orders(Integer id, Date purchaseDate, int customerId, BigDecimal subtotal, BigDecimal iva,
 			BigDecimal total) {
@@ -91,17 +86,6 @@ public class Orders {
 	  
 	  public void setTotal(BigDecimal total) { this.total = total; }
 	 
-	
-//	public String dateFormat () {
-//		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-//		String formatDateTime = purchaseDate.format(format);
-//		return formatDateTime;
-//		
-//	}
-	public BigDecimal totalIva() {
-		BigDecimal resultado= subtotal.multiply(iva);
-		return subtotal.add(resultado) ;
-	}
-	
+
 	
 }

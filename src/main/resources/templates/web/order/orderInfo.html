@@ -15,7 +15,11 @@
 
 
 
+
+
 	<div class="container">
+
+
 
 		<br /> <br /> <br /> <br />
 		<h1 class="text-center text-secondary "
@@ -24,10 +28,12 @@
 			<tr style="text-align: center;">
 				<th>Id</th>
 				<th>OrderID</th>
-				<th>Quantity</th>
-				<th>Price</th>
-				<th>TotalAmount</th>
-				<th>Product</th>
+				<th th:utext="#{quantity}">Quantity</th>
+				<th th:utext="#{product.price}">Price</th>
+				<th>Total</th>
+				<th th:utext="#{productName}">Product</th>
+
+
 
 
 			</tr>
@@ -38,29 +44,72 @@
 				<td th:text="${orderDetail.quantity}" />
 				<td th:text="${orderDetail.price}" />
 				<td th:text="${orderDetail.totalAmount}" />
-<!-- 				<td><button type="button" class="btn btn-lg btn-danger" -->
-<!-- 						data-bs-toggle="popover" th:title="${orderDetail.products.name}${orderDetail.products.description}">Detalle -->
-<!-- 						del Producto</button> -->
-<!-- 						</td> -->
-				<td th:text="${orderDetail.products.name}" />
+				<td>
+					<div class="row justify-content-center">
+						<div class="card text-white bg-secondary mb-3"
+							style="width: 18rem; background-color: coral; color: white">
+							<div class="card-body">
+								<i class="fas fa-info-circle fa-2x" ></i>
+								<div>
+									<h5 class="card-title" style="display: inline">[[#{product.name}]]:
+								
+									</h5>
+									<h5 class="card-title" th:text="${orderDetail.products.name}"
+										style="display: inline">Card title</h5>
+
+								</div>
+								<div>
+									<h6 class="card-subtitle mb-2 " style="display: inline">[[#{product.price}]]:
+									</h6>
+									<h6 class="card-subtitle mb-2 "
+										th:text="${orderDetail.products.price}"
+										style="display: inline">Card subtitle</h6>
+								</div>
+								<div>
+									<h6 class="card-text " style="display: inline">[[#{product.description}]]:
+									</h6>
+									<h6 class="card-text " style="display: inline"
+										th:text="${orderDetail.products.description}">Some quick
+										example text to build on the card title and make up the bulk
+										of the card's content</h6>
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</td>
 			</tr>
 		</table>
+
+		<a th:href="@{/order}" class="btn btn-primary"> <i
+			class="fas fa-arrow-left"></i> [[#{action.return}]]
+		</a>
 	</div>
+
+
 
 	<footer th:replace="plantilla/plantilla :: footer"></footer>
 
+
+
 	<section th:replace="plantilla/plantilla :: script-bootstrap"></section>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script>
-	
-		
-		$(function () {
-		    $('[data-bs-toggle="popover"]').popover()
-		});
 
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
+		$(function() {
+			$('[data-bs-toggle="popover"]').popover({
+				container : 'body'
+			})
+
+		});
 	</script>
 </body>
 </html>

@@ -97,10 +97,8 @@ public class OrderController {
 
 	@GetMapping("/getCustomer")
 	public String getCustomer(String email, Model model) {
-		
 		model.addAttribute("customer2", serviceCustomer.getCustomerByEmail(email));
 		model.addAttribute("orders",serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(email).getId()));
-
 		return "web/order/orderAdmin";
 	}
 	@GetMapping("/return")
