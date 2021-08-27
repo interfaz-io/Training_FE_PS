@@ -20,22 +20,36 @@
 				<h2>Agregar Nueva Cliente</h2>
 				<form th:action="@{/customer/add}" method="post">
 
-					<p th:utext="#{firstname}">First name:</p>
-					<input id="firstName" name="firstName" type="text" required />
-					
-					<p th:utext="#{lastName}">Last name:</p>
-					<input id="lastName" name="lastName" type="text" required />
-					
-					<p th:utext="#{email}">Email:</p>
-					<input id="email" name="email" type="email" required />
-					
-					<p>Status:</p>
-					<input id="status" name="status" type="text" required />
-					
-					<p th:utext="#{country}">Pais:</p>
-					<input id="countryID" name="countryID" type="number" required /> <br />
-					
-					<br /> <input type="submit" th:value="#{btnadd}">
+					<table class="table table-bordered">
+						<tr>
+							<td style="width: 200px;">[[#{firstname}]]</td>
+							<td><input id="firstName" name="firstName" type="text"
+								class="form-control" /></td>
+
+						</tr>
+						<tr>
+							<td>[[#{lastName}]]</td>
+							<td><input id="lastName" name="lastName" type="text"
+								class="form-control" /></td>
+						</tr>
+						<tr>
+							<td>[[#{email}]]</td>
+							<td><input id="email" name="email" type="text"
+								class="form-control" /></td>
+						</tr>
+						<tr>
+							<td>[[#{product.status}]]</td>
+							<td><input id="status" name="status" type="text"
+								class="form-control" /></td>
+						</tr>
+						<tr>
+							<td>[[#{country}]]</td>
+							<td><input id="countryID" name="countryID" type="number"
+								class="form-control" /></td>
+						</tr>
+					</table>
+				
+					<br /> <input class="btn btn-primary" type="submit" th:value="#{btnadd}">
 				</form>
 				<br /> <br /> <a th:href="@{/customer}" th:utext="#{btnback}">
 					<span>Volver</span>
