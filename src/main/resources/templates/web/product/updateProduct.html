@@ -16,35 +16,45 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 mx-auto">
-			<br/>
+				<br />
 				<h1 class="text-center" style="border-bottom: 1px solid coral;"
 					th:utext="#{update-product.title-details}">Detalles del
 					Producto</h1>
 
-				<form th:action="'/product/'+${product.id}+'/updateProduct'" method="post"
-					th:object="${product}">
+				<form th:action="'/product/'+${product.id}+'/updateProduct'"
+					method="post" th:object="${product}">
 
-					<input id="id" name="id" type="hidden" th:field="*{id}">
+
 					<table class="table table-bordered">
 						<tr>
 							<td style="width: 200px;">[[#{product.name}]]</td>
 							<td><input id="name" name="name" type="text"
-								th:field="*{name}" class="form-control" /></td>
+								th:field="*{name}" class="form-control" /><small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small></td>
 						</tr>
 						<tr>
 							<td>[[#{product.description}]]</td>
 							<td><input id="description" name="description" type="text"
-								th:field="*{description}" class="form-control" /></td>
+								th:field="*{description}" class="form-control" /><small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('description')}"
+								th:errors="*{description}"></small></td>
 						</tr>
 						<tr>
 							<td>[[#{product.price}]]</td>
 							<td><input id="price" name="price" type="text"
-								th:field="*{price}" class="form-control" /></td>
+								th:field="*{price}" class="form-control" /><small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></small></td>
 						</tr>
 						<tr>
 							<td>[[#{product.status}]]</td>
-							<td><input id="status" name="status" type="text"
-								th:field="*{status}" class="form-control" /></td>
+							<td><select class="form-select" id="status" name="status"
+								aria-label="Default select example">
+									<option selected value="Activo">Activo</option>
+									<option value="Inactivo">Inactivo</option>
+							</select></td>
 						</tr>
 					</table>
 					<button type="submit" name="modificar" class="btn btn-primary">
