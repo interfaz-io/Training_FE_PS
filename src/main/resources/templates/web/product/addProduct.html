@@ -25,23 +25,32 @@
 						<tr>
 							<td style="width: 200px;">[[#{product.name}]]</td>
 							<td><input id="name" name="name" type="text"
-								class="form-control" /></td>
+								class="form-control" /><small class="form-text text-danger"
+								th:if="${error != null && error.containsKey('name')}"
+								th:utext="${error.name}"></small></td>
 
 						</tr>
 						<tr>
 							<td>[[#{product.description}]]</td>
 							<td><input id="description" name="description" type="text"
-								class="form-control" /></td>
+								class="form-control" /><small class="form-text text-danger"
+								th:if="${error != null && error.containsKey('description')}"
+								th:utext="${error.description}"></small></td>
 						</tr>
 						<tr>
 							<td>[[#{product.price}]]</td>
 							<td><input id="price" name="price" type="text"
-								class="form-control" /></td>
+								class="form-control" /><small class="form-text text-danger"
+								th:if="${error != null && error.containsKey('price')}"
+								th:utext="${error.price}"></small></td>
 						</tr>
 						<tr>
 							<td>[[#{product.status}]]</td>
-							<td><input id="status" name="status" type="text"
-								class="form-control" /></td>
+							<td><select class="form-select" id="status" name="status"
+								aria-label="Default select example">
+									<option selected value="Activo">Activo</option>
+									<option value="Inactivo">Inactivo</option>
+							</select></td>
 						</tr>
 					</table>
 					<button type="submit" name="agregar" class="btn btn-primary">
