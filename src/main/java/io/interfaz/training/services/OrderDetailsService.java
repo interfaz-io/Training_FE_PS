@@ -31,7 +31,7 @@ public class OrderDetailsService {
 		return orderDetailDAO.getById(id);
 	}
 	
-	public OrdersDetails addProduct(OrdersDetails ordersDetail) {
+	public OrdersDetails addOrderDetails(OrdersDetails ordersDetail) {
 		return orderDetailDAO.createOrderDetail(ordersDetail);
 	}
 	
