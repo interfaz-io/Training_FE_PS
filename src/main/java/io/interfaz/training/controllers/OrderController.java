@@ -55,16 +55,16 @@ public class OrderController {
 	}
 	@GetMapping()
 	public String getAllOrders(Model model, @ModelAttribute("customer2") Customers customer2) {
-		if ((null != customer2.getEmail()) && (!customer2.getEmail().isBlank())) {
-			model.addAttribute("orders",serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(customer2.getEmail()).getId()));
-		}
+			if ((null != customer2.getEmail()) && (!customer2.getEmail().isBlank())) {
+				model.addAttribute("orders",serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(customer2.getEmail()).getId()));
+			}
+		
 		return "web/order/orderAdmin";
 	}
 
 	@GetMapping("/add")
 	public String addOrder(Model model, String keyword, @ModelAttribute("orderNew") Orders orderNew,
 			@ModelAttribute("customer2") Customers customer2) {
-
 		if (keyword != null && !keyword.equalsIgnoreCase("")) {
 			model.addAttribute("products", productOrder.searchProductByName(keyword));
 		} else {
@@ -97,8 +97,16 @@ public class OrderController {
 
 	@GetMapping("/getCustomer")
 	public String getCustomer(String email, Model model) {
-		model.addAttribute("customer2", serviceCustomer.getCustomerByEmail(email));
-		model.addAttribute("orders",serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(email).getId()));
+		try {
+			if (!email.isEmpty()) {
+				model.addAttribute("customer2", serviceCustomer.getCustomerByEmail(email));
+				model.addAttribute("orders",serviceOrder.getOrderByCustomer(serviceCustomer.getCustomerByEmail(email).getId()));
+			}
+			
+		} catch (Exception e) {
+			return "web/order/orderAdmin";
+		}
+		
 		return "web/order/orderAdmin";
 	}
 	@GetMapping("/return")
