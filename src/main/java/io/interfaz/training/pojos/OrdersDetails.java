@@ -19,11 +19,17 @@ import lombok.NoArgsConstructor;
 public class OrdersDetails {
 	 
 	 private Integer id;
+	 
 	 private int order;
+	 
 	 private int productId;
+	 
 	 private int quantity;
+	 
 	 private BigDecimal price;
+	 
 	 private int totalAmount; 
+	 
 	 private Products products;
 	 
 }

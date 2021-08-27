@@ -11,8 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import io.interfaz.training.dto.ProductDTO;
-import io.interfaz.training.pojos.ProductWrapper;
 import io.interfaz.training.pojos.Products;
 import reactor.core.publisher.Mono;
 
