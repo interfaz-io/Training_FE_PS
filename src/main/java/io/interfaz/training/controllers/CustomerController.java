@@ -45,7 +45,7 @@ public class CustomerController {
 	}
 	
 	
-	@GetMapping("/update/{id}")
+	@GetMapping("/{id}/update")
 	public String update(@PathVariable int id,Model model) {
 		
 		model.addAttribute("customer", serviceCustomer.getCustomer(id));
@@ -65,12 +65,11 @@ public class CustomerController {
 			return "web/customer/addCustomer";
 		}
 		
-		//System.out.print(customers);
 		serviceCustomer.addCustomer(customers);
 		return "redirect:/customer";
 	}
 	
-	@PostMapping("/updateCustomer/{id}")
+	@PostMapping("/{id}/update")
 	public String updateCustomer(@PathVariable int id, @ModelAttribute Customers customers) {
 		
 		System.out.print(customers);

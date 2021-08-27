@@ -43,11 +43,12 @@
 				<td th:text="${customer.email}" />
 				<td th:text="${customer.countryID}" />
 				<td th:text="${customer.status}" />
-				<td><a type="button" class="btn btn-info col-4" th:href="'/customer/update/'+ ${customer.id}" th:utext="#{update}"> </a></td>
+				<td><a type="button" class="btn btn-primary"
+					th:href="'/customer/'+${customer.id}+'/update'"
+					th:utext="#{update}"> </a></td>
 			</tr>
 		</table>
-
-		<a th:href="@{/home}" class="btn btn-primary"> <i
+		<br /> <a th:href="@{/home}" class="btn btn-primary"> <i
 			class="fas fa-arrow-left"></i> [[#{action.return}]]
 		</a>
 	</div>
