@@ -43,7 +43,10 @@ public class ProductDAO {
 	}
 	
 	public Products updateProduct(int id, Products product) {
-		return this.client.patch().uri("/products/"+id).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).body(Mono.just(product), Products.class).retrieve().bodyToMono(Products.class).block();
+		return this.client.patch().uri("/products/"+id)
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.body(Mono.just(product), Products.class)
+				.retrieve().bodyToMono(Products.class).block();
 	}
 	
 	public List<Products> getByName(String name) {

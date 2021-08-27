@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous" />
+<title>Home</title>
+</head>
+<body class="col-10 mx-auto align-middle mt-3">
+	<header th:replace="plantilla/plantilla :: header"></header>
+    <div class="card">
+        <div class="card-body">
+            <h1 th:utext="#{editPerson}">Edit person</h1>
+            <form action="#" th:action="@{'/customer/updateCustomer/' + ${id}}" th:object="${customer}" method="post">
+                <div class="row">
+                    <div class="col-3">
+                        <h5 th:utext="#{firstname}">First Name</h5>
+                        <input type="text" th:field="*{firstName}" th:value="${customer.firstName}"/>
+                    </div>
+                    <div class="col-3">
+                        <h5 th:utext="#{lastName}">Last Name</h5>
+                        <input type="text" th:field="*{lastName}" th:value="${customer.lastName}"/>
+                    </div>
+                    <div class="col-3">
+                        <h5 th:utext="#{email}">Email</h5>
+                        <input type="text" th:field="*{email}" th:value="${customer.email}"/>
+                    </div>
+                    <div class="col-3">
+                        <h5 th:utext="#{country}"></h5>
+                        <input type="text" th:field="*{countryID}" th:value="${customer.countryID}"/>
+                    </div>
+                    <div class="col-3">
+                        <h5 th:utext="#{status}"></h5>
+                        <input type="text" th:field="*{status}" th:value="${customer.status}"/>
+                    </div>
+                </div>
+                <p>
+                    <input class="btn btn-info col-1 mt-3" type="submit" th:utext="#{submit}" />
+                </p>
+            </form>
+        </div>
+    </div>
+    <a type="button" class="btn btn-danger mt-3" href="/customer" th:utext="#{btnback}">Go back</a>
+	<section th:replace="plantilla/plantilla :: script-bootstrap"></section>
+</body>
+</html>

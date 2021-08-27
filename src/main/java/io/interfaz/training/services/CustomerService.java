@@ -38,5 +38,8 @@ public class CustomerService {
 		return customerDAO.getByEmail(email);
 
 	}
+	public Customers updateCustomer(int id,Customers customer) {
+		return customerDAO.updateCustomer(id, customer);
+	}
 	
 }

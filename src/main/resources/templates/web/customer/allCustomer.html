@@ -34,6 +34,7 @@
 				<th th:utext="#{email}"></th>
 				<th th:utext="#{country}"></th>
 				<th th:utext="#{status}"></th>
+				<th th:utext="#{update}"></th>
 			</tr>
 			<tr th:each="customer: ${customers}">
 				<td th:text="${customer.id}"></td>
@@ -42,6 +43,7 @@
 				<td th:text="${customer.email}" />
 				<td th:text="${customer.countryID}" />
 				<td th:text="${customer.status}" />
+				<td><a type="button" class="btn btn-info col-4" th:href="'/customer/update/'+ ${customer.id}" th:utext="#{update}"> </a></td>
 			</tr>
 		</table>
 
