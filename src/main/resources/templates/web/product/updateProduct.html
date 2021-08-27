@@ -18,8 +18,7 @@
 			<div class="col-md-6 mx-auto">
 				<br />
 				<h1 class="text-center" style="border-bottom: 1px solid coral;"
-					th:utext="#{update-product.title-details}">Detalles del
-					Producto</h1>
+					th:utext="#{update-product.title-details}"></h1>
 
 				<form th:action="'/product/'+${product.id}+'/updateProduct'"
 					method="post" th:object="${product}">

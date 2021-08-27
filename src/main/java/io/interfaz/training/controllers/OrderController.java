@@ -53,6 +53,7 @@ public class OrderController {
 	public Customers customer2() {
 		return new Customers(null, "", "", null, null, null, null);
 	}
+	
 	@GetMapping()
 	public String getAllOrders(Model model, @ModelAttribute("customer2") Customers customer2) {
 			if ((null != customer2.getEmail()) && (!customer2.getEmail().isBlank())) {

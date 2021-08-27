@@ -49,5 +49,14 @@ public class CustomerDAO {
 		return this.client.post().uri("/customers").header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				.body(Mono.just(customer), Customers.class).retrieve().bodyToMono(Customers.class).block();
 	}
+	
+	public Customers updateCustomer(int id,Customers customer) {
+		return this.client.patch().uri("/customers/"+id)
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.body(Mono.just(customer),Customers.class)
+				.retrieve()
+				.bodyToMono(Customers.class)
+				.block();
+	}
 
 }
